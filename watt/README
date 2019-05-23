@@ -1,0 +1,10 @@
+0. Example is borrowed from: https://github.com/kubernetes/client-go/tree/master/examples/leader-election
+1. Need to modify the go.mod under main directory
+2. Change based on https://screenshot.googleplex.com/0hiDpo30aVT
+3. Then run tidy/vendor, according to vendor faq: https://screenshot.googleplex.com/P4LZnkGSOi2
+4. Then run the file under watt/ directory, with 
+    $ go run *.go -id=1 -kubeconfig=$HOME/.kube/config
+    $ go run *.go -id=2 -kubeconfig=$HOME/.kube/config
+    $ go run *.go -id=3 -kubeconfig=$HOME/.kube/config
+   in different terminals, and it should work.
+
