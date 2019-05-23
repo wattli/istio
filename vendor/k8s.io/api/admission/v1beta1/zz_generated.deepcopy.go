@@ -38,7 +38,6 @@ func (in *AdmissionRequest) DeepCopyInto(out *AdmissionRequest) {
 		*out = new(bool)
 		**out = **in
 	}
-	in.Options.DeepCopyInto(&out.Options)
 	return
 }
 

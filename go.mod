@@ -80,6 +80,7 @@ require (
 	github.com/google/go-cmp v0.3.0
 	github.com/google/go-github v15.0.0+incompatible
 	github.com/google/go-querystring v0.0.0-20170111101155-53e6ce116135 // indirect
+	github.com/google/gofuzz v1.0.0 // indirect
 	github.com/google/uuid v1.0.0
 	github.com/googleapis/gax-go v2.0.0+incompatible
 	github.com/googleapis/gax-go/v2 v2.0.4
@@ -88,6 +89,7 @@ require (
 	github.com/gorilla/mux v1.7.1
 	github.com/gorilla/websocket v1.2.0
 	github.com/gotestyourself/gotestyourself v2.2.0+incompatible // indirect
+	github.com/gregjones/httpcache v0.0.0-20190212212710-3befbb6ad0cc // indirect
 	github.com/grpc-ecosystem/go-grpc-middleware v0.0.0-20180323085839-aed189ae50cf
 	github.com/grpc-ecosystem/go-grpc-prometheus v0.0.0-20160910222444-6b7015e65d36
 	github.com/grpc-ecosystem/grpc-opentracing v0.0.0-20171214222146-0e7658f8ee99
@@ -119,6 +121,7 @@ require (
 	github.com/mitchellh/go-homedir v0.0.0-20161203194507-b8bc1bf76747
 	github.com/mitchellh/go-testing-interface v1.0.0 // indirect
 	github.com/mitchellh/reflectwalk v1.0.1 // indirect
+	github.com/modern-go/reflect2 v1.0.1 // indirect
 	github.com/natefinch/lumberjack v2.0.0+incompatible
 	github.com/onsi/ginkgo v1.8.0 // indirect
 	github.com/onsi/gomega v1.5.0
@@ -131,6 +134,8 @@ require (
 	github.com/openzipkin/zipkin-go v0.1.6
 	github.com/ory/dockertest v3.3.4+incompatible // indirect
 	github.com/patrickmn/go-cache v2.1.0+incompatible // indirect
+	github.com/pborman/uuid v1.2.0 // indirect
+	github.com/peterbourgon/diskv v2.0.1+incompatible // indirect
 	github.com/philhofer/fwd v1.0.0 // indirect
 	github.com/pkg/errors v0.8.1
 	github.com/pmezard/go-difflib v1.0.0
@@ -178,12 +183,15 @@ require (
 	gotest.tools v2.2.0+incompatible // indirect
 	istio.io/api v0.0.0-20190517041403-820986f2947c
 	istio.io/pkg v0.0.0-20190516214103-40b7bf4c7321
-	k8s.io/api v0.0.0-20190515023547-db5a9d1c40eb
-	k8s.io/apiextensions-apiserver v0.0.0-20190221221350-bfb440be4b87
-	k8s.io/apimachinery v0.0.0-20190515023456-b74e4c97951f
-	k8s.io/cli-runtime v0.0.0-20190221101700-11047e25a94a
+	k8s.io/api v0.0.0-20190313235455-40a48860b5ab
+	k8s.io/apiextensions-apiserver v0.0.0-20190315093550-53c4693659ed
+	k8s.io/apimachinery v0.0.0-20190313205120-d7deff9243b1
+	k8s.io/cli-runtime v0.0.0-20190314001948-2899ed30580f
 	k8s.io/client-go v11.0.0+incompatible
 	k8s.io/helm v2.9.1+incompatible
-	k8s.io/klog v0.3.0
+	k8s.io/klog v0.3.1
+	k8s.io/kube-openapi v0.0.0-20190510232812-a01b7d5d6c22 // indirect
 	k8s.io/utils v0.0.0-20190520173318-324c5df7d3f0 // indirect
+	sigs.k8s.io/kustomize v2.0.3+incompatible // indirect
+	sigs.k8s.io/yaml v1.1.0 // indirect
 )
