@@ -20,7 +20,7 @@ import (
 	"log"
 	"os"
 	"os/signal"
-	"strings"
+	// "strings"
 	"syscall"
 	"time"
 
@@ -57,13 +57,12 @@ func main() {
 	// klog.InitFlags(nil)
 
 	var kubeconfig string
-	var leaseLockName string
 	var leaseLockNamespace string
 	var id string
+	var electionID = "watt-election-leader"
 
 	flag.StringVar(&kubeconfig, "kubeconfig", "", "absolute path to the kubeconfig file")
 	flag.StringVar(&id, "id", "", "the holder identity name")
-	flag.StringVar(&leaseLockName, "lease-lock-name", "example", "the lease lock resource name")
 	flag.StringVar(&leaseLockNamespace, "lease-lock-namespace", "default", "the lease lock resource namespace")
 	flag.Parse()
 
@@ -84,7 +83,17 @@ func main() {
 
 	// we use the Lease lock type since edits to Leases are less common
 	// and fewer objects in the cluster watch "all Leases".
-	lock := &resourcelock.LeaseLock{
+	lock := &resourcelock.ConfigMapLock{
+		ConfigMapMeta: metav1.ObjectMeta{
+			Name:      electionID,
+			Namespace: leaseLockNamespace,
+		},
+		Client: client.CoreV1(),
+		LockConfig: resourcelock.ResourceLockConfig{
+			Identity: id,
+		},
+	}
+	/* lock := &resourcelock.LeaseLock{
 		LeaseMeta: metav1.ObjectMeta{
 			Name:      leaseLockName,
 			Namespace: leaseLockNamespace,
@@ -93,7 +102,7 @@ func main() {
 		LockConfig: resourcelock.ResourceLockConfig{
 			Identity: id,
 		},
-	}
+	} */
 
 	// use a Go context so we can tell the leaderelection code when we
 	// want to step down
@@ -150,10 +159,10 @@ func main() {
 	})
 
 	// because the context is closed, the client should report errors
-	_, err = client.CoordinationV1().Leases(leaseLockNamespace).Get(leaseLockName, metav1.GetOptions{})
+	/*_, err = client.CoordinationV1().Leases(leaseLockNamespace).Get(leaseLockName, metav1.GetOptions{})
 	if err == nil || !strings.Contains(err.Error(), "the leader is shutting down") {
 		log.Fatalf("%s: expected to get an error when trying to make a client call: %v", id, err)
-	}
+	}*/
 
 	// we no longer hold the lease, so perform any cleanup and then
 	// exit
